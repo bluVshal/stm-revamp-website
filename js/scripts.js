@@ -1,0 +1,192 @@
+// Navigation toggle for mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.navbar')) {
+            navMenu?.classList.remove('active');
+        }
+    });
+
+    // Initialize carousel if on home page
+    if (document.querySelector('.hero-carousel')) {
+        initCarousel();
+    }
+
+    // Initialize news slider if on home page
+    if (document.querySelector('.news-slider')) {
+        initNewsSlider();
+    }
+});
+
+// Carousel functionality
+let currentSlideIndex = 0;
+let carouselInterval;
+
+function initCarousel() {
+    // Auto-advance carousel every 5 seconds
+    carouselInterval = setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+
+    // Pause carousel on hover
+    const carousel = document.querySelector('.hero-carousel');
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(carouselInterval);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        carouselInterval = setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    });
+}
+
+function changeSlide(direction) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    // Remove active class from current slide and indicator
+    slides[currentSlideIndex].classList.remove('active');
+    indicators[currentSlideIndex].classList.remove('active');
+    
+    // Calculate new slide index
+    currentSlideIndex += direction;
+    
+    // Wrap around if needed
+    if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+    } else if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+    }
+    
+    // Add active class to new slide and indicator
+    slides[currentSlideIndex].classList.add('active');
+    indicators[currentSlideIndex].classList.add('active');
+}
+
+function currentSlide(index) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    // Remove active class from all slides and indicators
+    slides[currentSlideIndex].classList.remove('active');
+    indicators[currentSlideIndex].classList.remove('active');
+    
+    // Set new slide index
+    currentSlideIndex = index;
+    
+    // Add active class to new slide and indicator
+    slides[currentSlideIndex].classList.add('active');
+    indicators[currentSlideIndex].classList.add('active');
+    
+    // Reset interval
+    clearInterval(carouselInterval);
+    carouselInterval = setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+}
+
+// News Slider functionality
+let newsPosition = 0;
+
+function initNewsSlider() {
+    // Calculate initial settings
+    updateNewsSlider();
+}
+
+function slideNews(direction) {
+    const track = document.querySelector('.news-track');
+    const cards = document.querySelectorAll('.news-card');
+    const containerWidth = document.querySelector('.news-slider').offsetWidth;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 30;
+    const cardTotalWidth = cardWidth + gap;
+    
+    // Calculate visible cards
+    const visibleCards = Math.floor(containerWidth / cardTotalWidth);
+    const maxPosition = Math.max(0, cards.length - visibleCards);
+    
+    // Update position
+    newsPosition += direction;
+    
+    // Boundary checks
+    if (newsPosition < 0) {
+        newsPosition = 0;
+    } else if (newsPosition > maxPosition) {
+        newsPosition = maxPosition;
+    }
+    
+    // Apply transform
+    const translateX = -newsPosition * cardTotalWidth;
+    track.style.transform = `translateX(${translateX}px)`;
+}
+
+function updateNewsSlider() {
+    const track = document.querySelector('.news-track');
+    if (track) {
+        track.style.transform = 'translateX(0)';
+        newsPosition = 0;
+    }
+}
+
+// Reset news slider on window resize
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        updateNewsSlider();
+    }, 250);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// Add scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.news-card, .article-card, .event-card, .past-event-card, .team-event-item');
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
