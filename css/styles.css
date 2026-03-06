@@ -90,6 +90,155 @@ body {
     color: var(--secondary-color);
 }
 
+/* Dropdown Sub-menu */
+.has-dropdown {
+    position: relative;
+}
+
+.has-dropdown > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: var(--transition);
+}
+
+.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    min-width: 230px;
+    list-style: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    z-index: 100;
+}
+
+.dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--white);
+}
+
+.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    top: calc(100% + 5px);
+}
+
+.dropdown li {
+    padding: 0;
+}
+
+.dropdown li a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.dropdown li a::after {
+    display: none;
+}
+
+.dropdown li a:hover {
+    background: var(--light-bg);
+    color: var(--secondary-color);
+    padding-left: 1.5rem;
+}
+
+/* Accordions */
+.accordions {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.accordions > li {
+    border: 2px solid #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.accordions > li:hover {
+    border-color: var(--secondary-color);
+}
+
+.accordions > li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: var(--light-bg);
+    color: var(--text-dark);
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.accordions > li > a:hover {
+    background: #eaeaea;
+}
+
+.accordions > li > a i {
+    transition: transform 0.3s ease;
+    color: var(--secondary-color);
+}
+
+.accordions > li.active > a i {
+    transform: rotate(180deg);
+}
+
+.accordions > li > div {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 20px;
+    background: var(--white);
+}
+
+.accordions > li.active > div {
+    max-height: 300px;
+    padding: 20px;
+}
+
+.accordions .textcontent {
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.expanderblock,
+.dottedsection,
+.limitedsection,
+.content-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -128,6 +277,31 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+
+.carousel-slide:nth-child(1) {
+    background-image: url('../assets/carousel-1.avif');
+}
+
+.carousel-slide:nth-child(2) {
+    background-image: url('../assets/carousel-2.avif');
+}
+
+.carousel-slide:nth-child(3) {
+    background-image: url('../assets/carousel-3.avif');
 }
 
 .carousel-slide.active {
@@ -139,6 +313,8 @@ body {
     color: var(--white);
     max-width: 800px;
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .carousel-content h1 {
@@ -943,6 +1119,70 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Careers Section */
+.careers-section {
+    padding: 80px 0;    
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+}
+
+.careers-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.careers-content:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.careers-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.careers-content h2 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.careers-content h2 strong {
+    color: var(--secondary-color);
+}
+
+.careers-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.careers-content p a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.careers-content p a:hover {
+    color: var(--accent-color);
+}
+
 /* Contact Section */
 .contact-us-section {
     padding: 80px 0;
@@ -1086,6 +1326,41 @@ body {
 
     .nav-toggle {
         display: flex;
+    }
+
+    .dropdown {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        min-width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1;
+        visibility: visible;
+        padding: 0;
+        transition: max-height 0.3s ease;
+    }
+
+    .dropdown::before {
+        display: none;
+    }
+
+    .has-dropdown:hover .dropdown {
+        top: auto;
+    }
+
+    .has-dropdown.open .dropdown {
+        max-height: 500px;
+        padding: 0.5rem 0;
+    }
+
+    .dropdown li a {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .dropdown li a:hover {
+        padding-left: 1.2rem;
     }
 
     .carousel-content h1 {

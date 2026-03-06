@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,28 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-               <a href="/index.html"><img class="home-logo" src="./assets/STM-Consulting_Logo.webp" /></a>
+                <a href="/index.html"><img class="home-logo" src="./assets/STM-Consulting_Logo.webp" /></a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="#about-us">About</a></li>
+                <li class="has-dropdown">
+                    <a href="services.html">Services <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="managedServices.html">Managed Services</a></li>
+                        <li><a href="digitalMarketing.html">Digital Marketing</a></li>
+                        <li><a href="graphicDesign.html">Graphic Design</a></li>
+                        <li><a href="digitalTransformation.html">Digital Transformation</a></li>
+                        <li><a href="consultationServices.html">Consultation Services</a></li>
+                        <li><a href="globalMarkets.html">Global Markets</a></li>
+                    </ul>
+                </li>
                 <li><a href="careers.html">Careers</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -65,6 +77,55 @@
             <span class="indicator active" onclick="currentSlide(0)"></span>
             <span class="indicator" onclick="currentSlide(1)"></span>
             <span class="indicator" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <div class="expanderblock dottedsection featuredcontainer">
+        <div id="about-us" class="pinned content containsfeatured">
+            <h2>About Us</h2>
+            <p>Your company description goes here. Describe what your company does, your mission, and your
+                values.</p>
+
+            <div id="introaccordions">
+                <ul class="accordions">
+                    <li>
+                        <a><span>Company <b>Values</b></span> <i class="fa fa-angle-down"></i></a>
+                        <div>
+                            <div class="textcontent">
+                                <p>Your company values content goes here.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a><span>Our <b>Team</b></span> <i class="fa fa-angle-down"></i></a>
+                        <div>
+                            <div class="textcontent">
+                                <p>Information about your team goes here.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a><span>Our <b>History</b></span> <i class="fa fa-angle-down"></i></a>
+                        <div>
+                            <div class="textcontent">
+                                <p>Your company history goes here.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Contact us today and let's discuss how STM Consulting can drive your success.</p>
+                <a href="#contact" class="btn btn-light">Get in Touch</a>
+            </div>
         </div>
     </section>
 
@@ -143,60 +204,73 @@
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3>Managed Services</h3>
-                    <p>Comprehensive managed services tailored to your iGaming operations. From platform management to customer support, we handle it all.</p>
-                    <a href="#" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>Comprehensive managed services tailored to your iGaming operations. From platform management to
+                        customer support, we handle it all.</p>
+                    <a href="managedServices.html" class="article-link">Learn More <i
+                            class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="article-card">
                     <div class="article-icon">
                         <i class="fas fa-bullhorn"></i>
                     </div>
                     <h3>Digital Marketing</h3>
-                    <p>Strategic digital marketing solutions that drive engagement and growth. SEO, social media, and content marketing expertise.</p>
-                    <a href="#" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>Strategic digital marketing solutions that drive engagement and growth. SEO, social media, and
+                        content marketing expertise.</p>
+                    <a href="digitalMarketing.html" class="article-link">Learn More <i
+                            class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="article-card">
                     <div class="article-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3>Graphic Design</h3>
-                    <p>Creative design services that make your brand stand out. From logos to complete brand identities.</p>
-                    <a href="#" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>Creative design services that make your brand stand out. From logos to complete brand identities.
+                    </p>
+                    <a href="graphicDesign.html" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="article-card">
                     <div class="article-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Digital Transformation</h3>
-                    <p>End-to-end digital transformation services to modernize your operations and enhance customer experience.</p>
-                    <a href="#" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>End-to-end digital transformation services to modernize your operations and enhance customer
+                        experience.</p>
+                    <a href="digitalTransformation.html" class="article-link">Learn More <i
+                            class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="article-card">
                     <div class="article-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Consultation Services</h3>
-                    <p>Expert consultation for market entry, compliance, and operational optimization in the gaming industry.</p>
-                    <a href="#" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>Expert consultation for market entry, compliance, and operational optimization in the gaming
+                        industry.</p>
+                    <a href="consultationServices.html" class="article-link">Learn More <i
+                            class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="article-card">
                     <div class="article-icon">
                         <i class="fas fa-globe"></i>
                     </div>
                     <h3>Global Markets</h3>
-                    <p>Specialized expertise in African, LATAM, and European markets. Local insights, global standards.</p>
-                    <a href="#" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>Specialized expertise in African, LATAM, and European markets. Local insights, global standards.
+                    </p>
+                    <a href="globalMarkets.html" class="article-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
+    <!-- Careers Section -->
+    <section id="careers" class="careers-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Contact us today and let's discuss how STM Consulting can drive your success.</p>
-                <a href="#contact" class="btn btn-light">Get in Touch</a>
+            <div class="careers-content">
+                <div class="careers-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h2>Want to <strong>work</strong> with us?</h2>
+                <p>Send your CV to <a href="mailto:careers@yourcompany.com">careers@yourcompany.com</a></p>
+                <a href="careers.html" class="btn btn-primary">View Open Positions</a>
             </div>
         </div>
     </section>
@@ -262,7 +336,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>STM Consulting</h3>
-                    <p>Your solutions provider offering comprehensive managed services, digital marketing, and consultation services.</p>
+                    <p>Your solutions provider offering comprehensive managed services, digital marketing, and
+                        consultation services.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -310,4 +385,5 @@
 
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

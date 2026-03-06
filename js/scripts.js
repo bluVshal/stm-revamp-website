@@ -13,7 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.navbar')) {
             navMenu?.classList.remove('active');
+            document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
         }
+    });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.has-dropdown > a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 968) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('open');
+            }
+        });
     });
 
     // Initialize carousel if on home page
@@ -188,5 +199,25 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
+    });
+});
+
+// Accordion functionality
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.accordions > li > a').forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            var parent = this.parentElement;
+
+            if (parent.classList.contains('active')) {
+                parent.classList.remove('active');
+            } else {
+                // Close other accordions in the same list
+                parent.parentElement.querySelectorAll(':scope > li.active').forEach(function (sibling) {
+                    sibling.classList.remove('active');
+                });
+                parent.classList.add('active');
+            }
+        });
     });
 });
