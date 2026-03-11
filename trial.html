@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: calc(100vh / 2);
+        }
+
+        section h1 {
+            font-family: "Poppins", sans-serif;
+            display: block;
+            color: white;
+            font-size: 3rem;
+        }
+
+        section:first-child {
+            background-color: #f23b70;
+        }
+
+        section:nth-child(2) {
+            background-color: #3d42c0;
+        }
+
+        section:last-child {
+            background-color: #a2c474;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="wave-divider-bottom">
+            <h1>Section 1</h1>
+        </section>
+        <section class="wave-divider-bottom">
+            <h1>Section 3</h1>
+        </section>
+        <section>
+            <h1>Section 3</h1>
+        </section>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
