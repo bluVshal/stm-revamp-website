@@ -263,3 +263,19 @@ window.addEventListener("resize", function () {
 
 
 /******************************************************** */
+
+// Toggle open-positions slide down
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('toggle-positions-btn');
+    const openPositions = document.getElementById('open-positions');
+
+    if (toggleBtn && openPositions) {
+        toggleBtn.addEventListener('click', function () {
+            if (openPositions.style.maxHeight && openPositions.style.maxHeight !== '0px') {
+                openPositions.style.maxHeight = '0px';
+            } else {
+                openPositions.style.maxHeight = openPositions.scrollHeight + 'px';
+            }
+        });
+    }
+});

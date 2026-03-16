@@ -398,7 +398,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #2d2d2e, #7AB62F);
+    background: linear-gradient(135deg, #7AB62F, #2d2d2e);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(141, 197, 62, 0.4);
 }
