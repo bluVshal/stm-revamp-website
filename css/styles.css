@@ -38,10 +38,11 @@ body {
 .navbar {
     background: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
     padding: 1rem 0;
+    width: 100%;
 }
 
 .navbar .container {
@@ -90,12 +91,16 @@ body {
     color: var(--secondary-color);
 }
 
+#map {
+    height: 100%;
+}
+
 /* Dropdown Sub-menu */
 .has-dropdown {
     position: relative;
 }
 
-.has-dropdown > a {
+.has-dropdown>a {
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -174,7 +179,7 @@ body {
     margin-top: 30px;
 }
 
-.accordions > li {
+.accordions>li {
     border: 2px solid #e0e0e0;
     margin-bottom: 10px;
     border-radius: var(--border-radius);
@@ -182,11 +187,11 @@ body {
     transition: var(--transition);
 }
 
-.accordions > li:hover {
+.accordions>li:hover {
     border-color: var(--secondary-color);
 }
 
-.accordions > li > a {
+.accordions>li>a {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -199,20 +204,20 @@ body {
     transition: var(--transition);
 }
 
-.accordions > li > a:hover {
+.accordions>li>a:hover {
     background: #eaeaea;
 }
 
-.accordions > li > a i {
+.accordions>li>a i {
     transition: transform 0.3s ease;
     color: var(--secondary-color);
 }
 
-.accordions > li.active > a i {
+.accordions>li.active>a i {
     transform: rotate(180deg);
 }
 
-.accordions > li > div {
+.accordions>li>div {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.35s ease, padding 0.35s ease;
@@ -220,7 +225,7 @@ body {
     background: var(--white);
 }
 
-.accordions > li.active > div {
+.accordions>li.active>div {
     max-height: 300px;
     padding: 20px;
 }
@@ -256,7 +261,7 @@ body {
 /* Hero Carousel */
 .hero-carousel {
     position: relative;
-    height: 600px;
+    height: 90vh;
     overflow: hidden;
     background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%);
 }
@@ -398,7 +403,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #7AB62F, #2d2d2e);
+    background: linear-gradient(135deg, #7AB62F);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(141, 197, 62, 0.4);
 }
@@ -570,7 +575,7 @@ body {
     z-index: 0;
 }
 
-.articles-section > .container {
+.articles-section>.container {
     position: relative;
     z-index: 1;
 }
@@ -588,24 +593,32 @@ body {
 
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
 }
 
 .article-card {
     background: var(--white);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 40px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .article-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--secondary-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: scale(1.5);
+    box-shadow: 0 15px 25px rgba(241, 240, 240, 0.589);
 }
+
+/*
+.articles-grid:hover .article-card {
+    opacity: 0.6;
+}
+
+.articles-grid .article-card:hover {
+    opacity: 1;
+}*/
 
 .article-icon {
     width: 60px;
@@ -618,7 +631,13 @@ body {
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
     color: var(--white);
+    transition: transform 0.35s ease;
 }
+
+/*
+article-icon:hover {
+    transform: scale(1.15);
+}*/
 
 .article-card h3 {
     font-size: 1.5rem;
@@ -673,9 +692,10 @@ body {
 
 /* CTA Section */
 .cta-section {
-    padding: 80px 0;
+    padding-top: 50px;
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: var(--white);
+    height: 30rem;
 }
 
 .cta-content {
@@ -1120,8 +1140,14 @@ body {
 }
 
 /* Careers Section */
+
+.banner-img {
+    max-width: 100%;
+    height: auto;
+}
+
 .careers-section {
-    padding: 80px 0;    
+    padding: 130px 0;
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
 }
 
@@ -1183,6 +1209,14 @@ body {
     color: var(--accent-color);
 }
 
+.careers-details {
+    position: absolute;
+    top: 50rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
 /* Contact Section */
 .contact-us-section {
     padding: 80px 0;
@@ -1190,7 +1224,7 @@ body {
     overflow: hidden;
 }
 
-.contact-us-section > .container {
+.contact-us-section>.container {
     position: relative;
     z-index: 1;
 }
@@ -1307,6 +1341,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 968px) {
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1436,5 +1471,9 @@ body {
     .cta-content h2,
     .cta-box h2 {
         font-size: 1.8rem;
+    }
+
+    .cta-section {
+        height: 600px;
     }
 }

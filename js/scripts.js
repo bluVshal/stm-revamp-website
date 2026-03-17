@@ -279,3 +279,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+let map;
+async function initMap() {
+    const { Map, RenderingType } = (await google.maps.importLibrary('maps'));
+    map = new Map(document.getElementById('map'), {
+        center: { lat:-20.243261 , lng:57.487916 },
+        zoom: 16,
+        renderingType: RenderingType.VECTOR,
+    });
+}
+initMap();

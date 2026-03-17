@@ -4,35 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers - STM Consulting</title>
+    <title>Careers - STM Consulting<</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .parallax {
+            /* The image used */
+            background-image: url("assets/careers/desktop_careers_banner.png");
+            /* Full height */
+            height: 100%;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media only screen and (max-device-width: 1366px) {
+            .parallax {
+                background-attachment: scroll;
+                background-image: url("assets/careers/career-mobile.jpg");
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navigation -->
+        <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>STM Consulting</h2>
+                <a href="/index.html"><img class="home-logo" src="./assets/STM-Consulting_Logo.webp" /></a>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="/index.html#about-us">About</a></li>
+                <li><a href="#about-us">About</a></li>
                 <li class="has-dropdown">
                     <a href="services.html">Services <i class="fas fa-chevron-down dropdown-arrow"></i></a>
                     <ul class="dropdown">
-                        <li><a href="managedServices.html">Managed Services</a></li>
-                        <li><a href="digitalMarketing.html">Digital Marketing</a></li>
-                        <li><a href="graphicDesign.html">Graphic Design</a></li>
-                        <li><a href="digitalTransformation.html">Digital Transformation</a></li>
-                        <li><a href="consultationServices.html">Consultation Services</a></li>
-                        <li><a href="globalMarkets.html">Global Markets</a></li>
+                        <li><a href="design.html">Design</a></li>
+                        <li><a href="crm.html">Customer Relationship Management</a></li>
+                        <li><a href="seo.html">Search Engine Optimization</a></li>
+                        <li><a href="social-media-marketing.html">Social Media Marketing</a></li>
                     </ul>
                 </li>
                 <li><a href="careers.html" class="active">Careers</a></li>
                 <li><a href="blogs.html">Blog</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -41,26 +65,14 @@
             </div>
         </div>
     </nav>
+    <!-- Container element -->
+    <div class="parallax"></div>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <div class="banner-overlay"></div>
-        <div class="container">
-            <div class="banner-content">
-                <h1>Careers</h1>
-                <p> Start an exciting journey with us. </p>
-                    <p>We are a team of passionate and talented individuals who are dedicated to delivering competitive
-                    results, working together as a team, by combining our unique set of skills.</p>
+    <div style="height:1000px;">
 
-                <p>We believe that all ideas and opinions matter, and here at STM, the will to excel is not an object of
-                    fear, but the pursuit of an inspiring journey.</p>
+    </div>
 
-                <p>“Bring Your Talents to Our Table—We Can&apos;t Wait to Connect!” </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -78,28 +90,26 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Career</a></li>
+                        <li><a href="index.html#about-us">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html" class="active">Careers</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Managed Services</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                        <li><a href="#">Content Creation</a></li>
-                        <li><a href="#">Consultation</a></li>
+                        <li><a href="design.html">Design</a></li>
+                        <li><a href="crm.html">Customer Relationship Management</a></li>
+                        <li><a href="seo.html">Search Engine Optimization</a></li>
+                        <li><a href="social-media-marketing.html">Social Media Marketing</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
                         <li><i class="fas fa-envelope"></i> info@stmconsulting.io</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
                         <li><i class="fas fa-map-marker-alt"></i> Global Offices</li>
                     </ul>
                 </div>
