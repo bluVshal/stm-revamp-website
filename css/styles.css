@@ -28,6 +28,10 @@ body {
     overflow-x: hidden;
 }
 
+a{
+    text-decoration: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -665,6 +669,47 @@ article-icon:hover {
     gap: 12px;
 }
 
+/*Journey Section*/
+.journey-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.journey-section::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: url('../assets/roads.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    z-index: 0;
+}
+
+.journey-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+}
+
+.journey-section>.container {
+    position: relative;
+    z-index: 1;
+}
+
+.journey-section .section-title {
+    color: var(--white);
+}
+
 .contact-us-section::before {
     content: '';
     position: absolute;
@@ -1217,6 +1262,21 @@ article-icon:hover {
     width: 100%;
 }
 
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80.5vh;
+    width: 60vw;
+    padding: 2rem;
+    margin-left: 20vw;
+    align-items: center;
+    background-color: #fff;
+    border-radius: calc(var(--border-radius) + 10px);
+    text-align: center;
+    align-content: center;
+}
+
 /* Contact Section */
 .contact-us-section {
     padding: 80px 0;
@@ -1439,6 +1499,10 @@ article-icon:hover {
         flex-direction: column;
         text-align: center;
     }
+
+    .contact-form {
+        width: 90vw;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1475,5 +1539,9 @@ article-icon:hover {
 
     .cta-section {
         height: 600px;
+    }
+
+    .contact-form {
+        width: 90vw;
     }
 }
